@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnolar | Plataformas Web para Segurança Eletrônica e Automação Residencial</title>
+<meta name="description" content="Plataformas web e sistemas inteligentes para gestão de segurança eletrônica e automação residencial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== VARIÁVEIS ===== */
+:root{
+  --bg:#050a17; --bg2:#0a1226; --panel:rgba(255,255,255,.045); --line:rgba(255,255,255,.1);
+  --cyan:#22d3ee; --neon:#34f5a0; --title:#f1f5f9; --text:#94a3b8;
+  --grad:linear-gradient(135deg,#22d3ee,#34f5a0);
+  --radius:18px; --hh:70px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hh)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+h1,h2,h3{color:var(--title);line-height:1.15;letter-spacing:-.025em}
+a{color:inherit;text-decoration:none}ul{list-style:none}img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1160px,92%);margin-inline:auto}
+section{padding:clamp(4rem,9vw,6.5rem) 0}
+.head{max-width:620px;margin-bottom:2.8rem}
+.head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.9rem}
+
+/* ===== BOTÕES ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 1.7rem;border-radius:999px;font:600 .95rem 'Inter',sans-serif;
+  border:1px solid transparent;cursor:pointer;transition:all .3s ease}
+.btn-p{background:var(--grad);color:#03111a;box-shadow:0 0 26px rgba(34,211,238,.35)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(52,245,160,.5)}
+.btn-g{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.25);color:var(--title);backdrop-filter:blur(8px)}
+.btn-g:hover{border-color:var(--cyan);background:rgba(34,211,238,.1)}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:50;height:var(--hh);display:flex;align-items:center;background:rgba(5,10,23,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.25rem;color:var(--title)}
+.logo svg{width:32px;height:32px}
+.links{display:flex;gap:2rem}
+.links a{font-size:.92rem;font-weight:500;transition:color .3s ease}
+.links a:hover{color:var(--cyan)}
+.burger{display:none;width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:none;color:var(--title);cursor:pointer;font-size:1.3rem}
+.cta-h{padding:.65rem 1.3rem;font-size:.88rem}
+
+/* ===== HERO ===== */
+.hero{position:relative;padding:clamp(4rem,10vw,8rem) 0 clamp(4rem,9vw,7rem);isolation:isolate;
+  background:radial-gradient(circle at 75% 20%,#0e2a4a,var(--bg) 60%)}
+.hero-bg{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;opacity:.32}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 25%,rgba(5,10,23,.55) 100%),linear-gradient(0deg,var(--bg),transparent 40%)}
+.chip{display:inline-flex;align-items:center;gap:.55rem;padding:.4rem 1rem;border-radius:999px;border:1px solid rgba(52,245,160,.4);background:rgba(52,245,160,.08);color:var(--neon);font-size:.82rem;margin-bottom:1.5rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.3}}
+.hero h1{font-size:clamp(2.4rem,6.5vw,4.3rem);font-weight:800;max-width:780px;margin-bottom:1.3rem}
+.hero h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.12rem;max-width:580px;margin-bottom:2.2rem}
+.acts{display:flex;flex-wrap:wrap;gap:1rem}
+
+/* ===== CARDS ===== */
+#solucoes{background:var(--bg2)}
+.grid4{display:grid;gap:1.3rem}
+.card{padding:2rem;border-radius:var(--radius);background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(12px);transition:all .3s ease}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan);box-shadow:0 16px 40px rgba(34,211,238,.14)}
+.ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:1.2rem;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.28)}
+.ico svg{width:25px;height:25px;fill:none;stroke:var(--cyan);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.15rem;margin-bottom:.6rem}
+.card p{font-size:.94rem}
+
+/* ===== DEMO INTERATIVA ===== */
+.demo-wrap{display:grid;gap:2.5rem;align-items:center}
+.demo-copy h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1rem}
+.demo-copy ul{margin-top:1.4rem;display:grid;gap:.6rem;color:var(--title);font-size:.95rem}
+.demo-copy li::before{content:"✓";color:var(--neon);margin-right:.6rem;font-weight:700}
+.app{border-radius:22px;border:1px solid rgba(34,211,238,.25);background:linear-gradient(160deg,#0c1a33,#060c1b);padding:1.1rem;box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 60px rgba(34,211,238,.1)}
+.app-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;font-size:.82rem}
+.app-top b{color:var(--title);font-size:.95rem}
+.app-grid{display:grid;gap:.9rem}
+.tile{padding:1rem;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.tile small{display:block;font-size:.74rem;margin-bottom:.3rem}
+.tile strong{color:var(--title);font-size:1.05rem}
+.cam{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#0d1b36,#050a17);border:1px solid var(--line)}
+.cam img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.8)}
+.cam::after{content:"";position:absolute;left:0;right:0;height:2px;background:rgba(34,211,238,.6);box-shadow:0 0 12px var(--cyan);animation:scan 4s linear infinite}
+@keyframes scan{from{top:0}to{top:100%}}
+.live{position:absolute;left:10px;top:10px;z-index:2;font-size:.7rem;font-weight:600;color:#fff;background:rgba(0,0,0,.55);padding:.2rem .6rem;border-radius:999px;display:flex;gap:.4rem;align-items:center}
+.live i{width:7px;height:7px;border-radius:50%;background:#ef4444;animation:blink 1.4s infinite}
+.cam-tabs{display:flex;gap:.5rem;margin-top:.7rem;flex-wrap:wrap}
+.cam-tabs button,.mini{font:500 .78rem 'Inter',sans-serif;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;transition:all .3s ease}
+.cam-tabs button.on,.cam-tabs button:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(34,211,238,.1)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.sw{position:relative;width:50px;height:28px;border-radius:999px;border:0;background:#334155;cursor:pointer;transition:all .3s ease;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:all .3s ease}
+.sw[aria-pressed="true"]{background:var(--neon);box-shadow:0 0 14px rgba(52,245,160,.5)}
+.sw[aria-pressed="true"]::after{transform:translateX(22px)}
+.temp{display:flex;align-items:center;gap:.8rem;margin-top:.4rem}
+.temp strong{font-size:1.7rem;min-width:3.4rem;text-align:center}
+.mini{width:34px;height:34px;padding:0;font-size:1.1rem;color:var(--title)}
+.mini:hover{border-color:var(--cyan)}
+input[type=range]{width:100%;accent-color:var(--cyan);margin-top:.5rem}
+.ok{color:var(--neon)!important}.warn{color:#f59e0b!important}
+
+/* ===== DIFERENCIAIS ===== */
+#diferenciais{background:var(--bg2)}
+.feat{display:flex;gap:1rem}
+.feat .ico{flex:none;margin:0}
+.feat h3{font-size:1.08rem;margin-bottom:.3rem}
+.feat p{font-size:.93rem}
+
+/* ===== CONTATO ===== */
+.contact{display:grid;gap:2.5rem;align-items:start}
+.contact h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1rem}
+form{display:grid;gap:1rem;padding:2rem;border-radius:var(--radius);background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(12px)}
+.f{display:grid;gap:.35rem}
+.f label{font-size:.85rem;color:var(--title);font-weight:500}
+.f input,.f textarea{width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid var(--line);background:rgba(5,10,23,.8);color:var(--title);font:inherit;transition:all .3s ease}
+.f textarea{min-height:120px;resize:vertical}
+.f input:focus,.f textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,211,238,.15)}
+#ok{display:none;padding:.8rem 1rem;border-radius:12px;background:rgba(52,245,160,.1);border:1px solid rgba(52,245,160,.4);color:var(--neon);font-size:.9rem}
+
+/* ===== FOOTER ===== */
+footer{border-top:1px solid var(--line);padding:3rem 0 1.8rem;background:var(--bg2)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem}
+.foot p{max-width:320px;margin-top:.8rem;font-size:.92rem}
+.foot ul{display:grid;gap:.5rem;font-size:.9rem}
+.foot h4{color:var(--title);margin-bottom:.8rem;font-size:.95rem}
+.foot a:hover{color:var(--cyan)}
+.social{display:flex;gap:.6rem}
+.social a{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--line);color:var(--title);font-weight:700;font-size:.8rem;transition:all .3s ease}
+.social a:hover{border-color:var(--cyan);background:rgba(34,211,238,.1)}
+.copy{margin-top:2rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.82rem}
+
+/* ===== RESPONSIVO (mobile-first) ===== */
+@media (max-width:859px){
+  .burger{display:block}.cta-h{display:none}
+  .links{position:absolute;top:var(--hh);left:0;right:0;flex-direction:column;gap:0;background:rgba(5,10,23,.98);max-height:0;overflow:hidden;transition:max-height .35s ease;border-bottom:1px solid var(--line)}
+  .links.open{max-height:320px}
+  .links a{display:block;padding:1rem 4%;border-top:1px solid var(--line)}
+}
+@media (min-width:600px){.grid4{grid-template-columns:repeat(2,1fr)}.app-grid{grid-template-columns:repeat(2,1fr)}.app-grid .wide{grid-column:1/-1}}
+@media (min-width:860px){.demo-wrap{grid-template-columns:.8fr 1.2fr}.contact{grid-template-columns:.9fr 1.1fr}}
+@media (min-width:1080px){.grid4{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Hero em duas colunas + imagem principal */
+.hero-grid{display:grid;gap:3rem;align-items:center}
+.hero-visual{position:relative;aspect-ratio:4/3;border-radius:24px;border:1px solid rgba(34,211,238,.3);overflow:visible;
+  background:linear-gradient(135deg,#0e2a4a,#060c1b);box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 70px rgba(34,211,238,.15)}
+.hero-visual img{width:100%;height:100%;object-fit:cover;border-radius:24px;opacity:.9}
+.float{position:absolute;display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-radius:999px;font-size:.8rem;color:var(--title);
+  background:rgba(5,10,23,.82);backdrop-filter:blur(10px);border:1px solid rgba(34,211,238,.35);box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.float b{color:var(--neon)}
+.f1{left:-12px;top:14%}.f2{right:-12px;top:44%}.f3{left:8%;bottom:-14px}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+@media (max-width:599px){.f1{left:6px}.f2{right:6px}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="logo" aria-label="Tecnolar">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3 5 9v10c0 9 6.5 15.500 15 18 8.500-2.500 15-9 15-18V9L20 3Z" stroke="#22d3ee" stroke-width="2"/><circle cx="20" cy="15" r="3" fill="#22d3ee"/><circle cx="13" cy="25" r="2.400" fill="#34f5a0"/><circle cx="27" cy="25" r="2.400" fill="#22d3ee"/><path d="M20 15 13 25M20 15l7 10M13 25h14" stroke="#22d3ee" stroke-width="1.400"/></svg>
+      Tecnolar
+    </a>
+    <nav aria-label="Principal">
+      <ul class="links" id="menu">
+        <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#demo">Plataformas Web</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a href="#contato" class="btn btn-p cta-h">Fale com um Especialista</a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <!-- Imagem Unsplash: segurança digital. Se não carregar, o gradiente do fundo assume. -->
+  <img class="hero-bg" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1800&q=70" alt="" onerror="this.remove()">
+  <div class="wrap hero-grid">
+   <div>
+    <div class="chip"><span class="dot"></span>Plataformas online 24/7</div>
+    <h1>A tecnologia que <span>protege e conecta</span> o seu futuro com a Tecnolar.</h1>
+    <p>A Tecnolar desenvolve plataformas web e sistemas inteligentes para a gestão de segurança eletrônica e automação residencial: câmeras, alarmes, sensores e dispositivos conectados em um só lugar.</p>
+    <div class="acts">
+      <a href="#contato" class="btn btn-p">Solicitar Demonstração</a>
+      <a href="#solucoes" class="btn btn-g">Ver Soluções</a>
+    </div>
+   </div>
+   <!-- Imagem principal (Unsplash). Se falhar, o gradiente do contêiner permanece. -->
+   <figure class="hero-visual">
+     <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1000&q=75" alt="Painel de casa inteligente controlado por tablet" onerror="this.remove()">
+     <figcaption class="float f1"><span class="dot"></span>Porta trancada</figcaption>
+     <figcaption class="float f2">Câmeras <b>4/4</b> online</figcaption>
+     <figcaption class="float f3">Temperatura <b>22°C</b></figcaption>
+   </figure>
+  </div>
+</section>
+
+<!-- SOLUÇÕES -->
+<section id="solucoes">
+  <div class="wrap">
+    <div class="head"><h2>Soluções para cada ponta da operação</h2><p>Da central de monitoramento à casa do cliente final, construímos a plataforma que conecta tudo.</p></div>
+    <div class="grid4">
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4M7 11l3-3 3 3 4-4"/></svg></div>
+        <h3>Dashboards em Tempo Real</h3><p>Monitoramento de CFTV, alarmes e sensores com eventos ao vivo, mapas e histórico completo de ocorrências.</p></article>
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.400 8 8 9 4.600-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Apps Web e White-label</h3><p>Aplicativos com a marca da sua empresa de segurança, prontos para o cliente acompanhar tudo pelo celular.</p></article>
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h3>Automação Residencial</h3><p>Integração com IoT para controlar iluminação, climatização, portões e acessos, com cenas e rotinas.</p></article>
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+        <h3>Gestão para Prestadores</h3><p>Painéis para ordens de serviço, equipes técnicas, contratos e agenda de visitas em um só sistema.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO INTERATIVA -->
+<section id="demo">
+  <div class="wrap demo-wrap">
+    <div class="demo-copy">
+      <h2>Veja uma plataforma em ação</h2>
+      <p>Esta é uma simulação do tipo de painel que a Tecnolar desenvolve. Troque de câmera, tranque a porta, ajuste a luz e a temperatura.</p>
+      <ul><li>Câmeras ao vivo com troca de ambiente</li><li>Fechaduras e alarme com um toque</li><li>Clima e iluminação sob controle</li></ul>
+    </div>
+
+    <div class="app" aria-label="Simulação de painel de controle residencial">
+      <div class="app-top"><b>Tecnolar · Casa Aurora</b><span class="ok" id="alarm-top">● Alarme armado</span></div>
+      <div class="app-grid">
+        <div class="wide">
+          <div class="cam">
+            <span class="live"><i></i><span id="cam-name">Entrada</span></span>
+            <img id="cam-img" src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70" alt="Imagem da câmera selecionada" onerror="this.style.display='none'">
+          </div>
+          <div class="cam-tabs" id="cam-tabs">
+            <button class="on" data-n="Entrada" data-s="photo-1558002038-1055907df827">Entrada</button>
+            <button data-n="Garagem" data-s="photo-1585771724684-38269d6639fd">Garagem</button>
+            <button data-n="Quintal" data-s="photo-1518770660439-4636190af475">Quintal</button>
+          </div>
+        </div>
+        <div class="tile"><div class="row"><div><small>Porta principal</small><strong id="lock-t" class="ok">Trancada</strong></div>
+          <button class="sw" id="lock" aria-pressed="true" aria-label="Trancar porta principal"></button></div></div>
+        <div class="tile"><div class="row"><div><small>Alarme</small><strong id="alarm-t" class="ok">Armado</strong></div>
+          <button class="sw" id="alarm" aria-pressed="true" aria-label="Armar alarme"></button></div></div>
+        <div class="tile"><small>Temperatura da sala</small>
+          <div class="temp"><button class="mini" id="dn" aria-label="Diminuir">−</button><strong id="temp">22°C</strong><button class="mini" id="up" aria-label="Aumentar">+</button></div></div>
+        <div class="tile"><small>Iluminação da sala</small><strong id="lum-t">60%</strong>
+          <input type="range" id="lum" min="0" max="100" value="60" aria-label="Brilho da iluminação"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="wrap">
+    <div class="head"><h2>Por que escolher a Tecnolar</h2><p>Segurança eletrônica não admite falhas. Nossa engenharia parte dessa premissa.</p></div>
+    <div class="grid4">
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.5-8A6 6 0 0 1 18 8.500 4.500 4.500 0 0 1 17.500 18H7Z"/></svg></div><div><h3>Escalabilidade</h3><p>Arquitetura em nuvem que cresce de centenas a milhares de clientes sem retrabalho.</p></div></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div><h3>Dados protegidos</h3><p>Criptografia avançada, controle de acesso por perfil e conformidade com a LGPD.</p></div></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><div><h3>UX/UI que converte</h3><p>Interfaces claras para operadores e moradores, pensadas para reduzir cliques e dúvidas.</p></div></div>
+      <div class="feat"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/></svg></div><div><h3>Suporte especializado</h3><p>Time técnico que entende de alarmes, câmeras e IoT, com atendimento próximo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="wrap contact">
+    <div>
+      <h2>Fale com um especialista</h2>
+      <p>Conte seu projeto e retornamos em até 1 dia útil com uma proposta e uma demonstração personalizada.</p>
+    </div>
+    <form id="form" novalidate>
+      <div class="f"><label for="n">Nome</label><input id="n" type="text" placeholder="Seu nome" autocomplete="name" required></div>
+      <div class="f"><label for="e">E-mail</label><input id="e" type="email" placeholder="voce@empresa.com.br" autocomplete="email" required></div>
+      <div class="f"><label for="t">Telefone</label><input id="t" type="tel" placeholder="(21) 90000-0000" autocomplete="tel"></div>
+      <div class="f"><label for="m">Mensagem</label><textarea id="m" placeholder="Descreva o que você precisa"></textarea></div>
+      <button type="submit" class="btn btn-p">Enviar mensagem</button>
+      <p id="ok" role="status">Mensagem enviada. Entraremos em contato em breve.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a href="#inicio" class="logo">Tecnolar</a><p>Plataformas web para segurança eletrônica e automação residencial.</p></div>
+      <div><h4>Navegação</h4><ul><li><a href="#solucoes">Soluções</a></li><li><a href="#demo">Plataformas Web</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#contato">Contato</a></li></ul></div>
+      <div><h4>Redes sociais</h4><div class="social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="YouTube">yt</a></div></div>
+    </div>
+    <p class="copy">© 2026 Tecnolar. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+/* Menu mobile */
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.onclick=()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)};
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
+
+/* Demo: câmeras */
+const img=document.getElementById('cam-img');
+document.querySelectorAll('#cam-tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#cam-tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  document.getElementById('cam-name').textContent=b.dataset.n;
+  img.style.display='';img.src='https://images.unsplash.com/'+b.dataset.s+'?auto=format&fit=crop&w=900&q=70';
+});
+/* Demo: fechadura e alarme */
+function toggle(id,tid,on,off,topEl){
+  const sw=document.getElementById(id);
+  sw.onclick=()=>{
+    const p=sw.getAttribute('aria-pressed')!=='true';sw.setAttribute('aria-pressed',p);
+    const t=document.getElementById(tid);t.textContent=p?on:off;t.className=p?'ok':'warn';
+    if(topEl){topEl.textContent=p?'● Alarme armado':'● Alarme desarmado';topEl.className=p?'ok':'warn'}
+  };
+}
+toggle('lock','lock-t','Trancada','Destrancada');
+toggle('alarm','alarm-t','Armado','Desarmado',document.getElementById('alarm-top'));
+/* Demo: temperatura e luz */
+let temp=22;const tEl=document.getElementById('temp');
+document.getElementById('up').onclick=()=>{temp=Math.min(30,temp+1);tEl.textContent=temp+'°C'};
+document.getElementById('dn').onclick=()=>{temp=Math.max(16,temp-1);tEl.textContent=temp+'°C'};
+const lum=document.getElementById('lum');lum.oninput=()=>document.getElementById('lum-t').textContent=lum.value+'%';
+
+/* Formulário (substitua pelo envio real ao seu back-end) */
+document.getElementById('form').onsubmit=e=>{
+  e.preventDefault();const f=e.target;
+  if(!f.n.value.trim()){f.n.focus();return}
+  if(!/\S+@\S+\.\S+/.test(f.e.value)){f.e.focus();return}
+  document.getElementById('ok').style.display='block';f.reset();
+};
+</script>
+</body>
+</html>
